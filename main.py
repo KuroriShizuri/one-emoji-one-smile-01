@@ -44,6 +44,10 @@ def main() -> int:
         print(f"FAIL: entry is not a symbol/emoji: U+{ord(ch):04X}",
               file=sys.stderr)
         return 1
+    if unicodedata.name(ch, "") != "HEART HANDS":
+        print(f"FAIL: entry is not HEART HANDS: {unicodedata.name(ch, '?')}",
+              file=sys.stderr)
+        return 1
     if ch.isspace():
         print("FAIL: entry is whitespace", file=sys.stderr)
         return 1
